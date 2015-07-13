@@ -27,7 +27,7 @@ class ParticipationDataMemberConfig extends ParticipationDataConfig
 		if(ParticipationController::issetRecentlyAddedParticipation() && ParticipationController::getActiveParticipationID() == ParticipationController::getRecentlyAddedParticipationID())
 		{
 			$objParticipationData = ParticipationController::getRecentlyAddedParticipationData();
-			
+
 			if (($objParticipationData->tstamp + static::$intTimeout) >= time())
 			{
 				ParticipationController::removeRecentlyAddedParticipation();

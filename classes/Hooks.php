@@ -20,6 +20,7 @@ class Hooks
 
 		if ($objParticipation !== null)
 		{
+			$blnAddParticipation = true;
 
 			// only one participation per alias is supported yet
 			if ($objParticipation instanceof \Model\Collection)
@@ -29,19 +30,42 @@ class Hooks
 
 			$objArchive = $objParticipation->getRelated('pid');
 
-			if ($objArchive !== null) {
-				ParticipationController::setActiveParticipation($objParticipation);
+			if ($objArchive === null)
+			{
+				$blnAddParticipation = false;
 			}
 
-			if ($objArchive->addInfoMessage && $objArchive->infoMessageWith !== '')
+			// check if current page is in defined root
+			if($objArchive->defineRoot && $objArchive->rootPage > 0)
 			{
-				ParticipationMessage::addInfo(
-					\String::parseSimpleTokens(
-						$objArchive->infoMessageWith,
-						array('participation' => ParticipationController::getParticipationLabel($objParticipation, '', true))
-					),
-					PARTICIPATION_MESSAGEKEY_ACTIVE
-				);
+				$objCurrentRootPage = \Frontend::getRootPageFromUrl();
+
+				$objRootPage = \PageModel::findByPk($objArchive->rootPage);
+
+				if($objRootPage !== null && $objCurrentRootPage !== null)
+				{
+					if($objRootPage->domain != $objCurrentRootPage->domain)
+					{
+						$blnAddParticipation = false;
+						ParticipationController::removeActiveParticipation();
+					}
+				}
+			}
+
+			if($blnAddParticipation)
+			{
+				ParticipationController::setActiveParticipation($objParticipation);
+
+				if ($objArchive->addInfoMessage && $objArchive->infoMessageWith !== '')
+				{
+					ParticipationMessage::addInfo(
+						\String::parseSimpleTokens(
+							$objArchive->infoMessageWith,
+							array('participation' => ParticipationController::getParticipationLabel($objParticipation, '', true))
+						),
+						PARTICIPATION_MESSAGEKEY_ACTIVE
+					);
+				}
 			}
 
 			if (($objConfig = ParticipationController::findParticipationDataConfigClass($objParticipation)) !== null)
