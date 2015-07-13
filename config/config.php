@@ -39,7 +39,6 @@ array_insert(
 /**
  * Front end modules
  */
-$GLOBALS['FE_MOD']['user']['participation']         = '\\HeimrichHannot\\Participation\\ModuleParticipation';
 $GLOBALS['FE_MOD']['user']['participation_message'] = '\HeimrichHannot\Participation\ModuleParticipationMessage';
 
 

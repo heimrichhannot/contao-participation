@@ -30,7 +30,6 @@ ClassLoader::addClasses(array
 
 	// Modules
 	'HeimrichHannot\Participation\ModuleParticipationMessage'    => 'system/modules/participation/modules/ModuleParticipationMessage.php',
-	'HeimrichHannot\Participation\ModuleParticipation'           => 'system/modules/participation/modules/ModuleParticipation.php',
 
 	// Classes
 	'HeimrichHannot\Participation\ParticipationDataConfig'       => 'system/modules/participation/classes/ParticipationDataConfig.php',

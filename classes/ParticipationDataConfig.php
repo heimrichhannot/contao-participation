@@ -121,9 +121,6 @@ abstract class ParticipationDataConfig extends \Controller
 
 		// store this participation in recently added to prevent double submission
 		ParticipationController::setRecentlyAddedParticipation($this->objParticipation->id);
-
-		// remove participation from session
-		ParticipationController::removeActiveParticipation();
 	}
 
 	public function getSourceOptions()

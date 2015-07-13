@@ -21,22 +21,10 @@ class ParticipationDataMemberConfig extends ParticipationDataConfig
 			return false;
 		}
 
-		// prevent infinite requests (result: wrong message from session will be shown)
-		if(ParticipationController::issetRecentlyAddedParticipation() && ParticipationController::getActiveParticipationID() == ParticipationController::getRecentlyAddedParticipationID())
-		{
-			$objParticipationData = ParticipationController::getRecentlyAddedParticipationData();
-
-			if (($objParticipationData->tstamp + ParticipationController::getTimeout()) >= time())
-			{
-				ParticipationController::removeRecentlyAddedParticipation();
-				return false;
-			}
-		}
-		
 		if ($this->maxParticipations > 0)
 		{
 			$intParticipations = ParticipationDataModel::countPublishedByPid($this->id);
-
+			
 			if ($intParticipations >= $this->maxParticipations)
 			{
 				ParticipationMessage::clearMessages();
