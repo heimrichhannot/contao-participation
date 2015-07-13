@@ -18,7 +18,7 @@ $GLOBALS['TL_LANG']['PARTICIPATION_DATA']['tl_member'] = 'Mitglieder [tl_member]
 /**
  * Participation Messages
  */
-$GLOBALS['TL_LANG']['PARTICIPATION_MESSAGE']['maxParticipations'] = 'Die maximale Anzahl von Teilnahmen für \'%s\' sind erreicht. Ihre Teilnahme wurde nicht gewertet.';
-$GLOBALS['TL_LANG']['PARTICIPATION_MESSAGE']['maxParticipationsPerMember'] = 'Sie haben bereits teilgenommen an \'%s\'.';
-$GLOBALS['TL_LANG']['PARTICIPATION_MESSAGE']['activeParticipationInfo'] = 'Sie werden an \'%s\' teilnehmen.';
-$GLOBALS['TL_LANG']['PARTICIPATION_MESSAGE']['newParticipationSuccess'] = 'Sie haben an \'%s\' teilgenommen.';
+$GLOBALS['TL_LANG']['PARTICIPATION_MESSAGE']['maxParticipations'] = "Die maximale Anzahl von Teilnahmen für '%s' sind erreicht. Ihre Teilnahme wurde nicht gewertet.";
+$GLOBALS['TL_LANG']['PARTICIPATION_MESSAGE']['maxParticipationsPerMember'] = "Sie haben bereits teilgenommen an '%s'.";
+$GLOBALS['TL_LANG']['PARTICIPATION_MESSAGE']['activeParticipationInfo'] = "Sie werden an '%s' teilnehmen.";
+$GLOBALS['TL_LANG']['PARTICIPATION_MESSAGE']['newParticipationSuccess'] = "Sie haben an '%s' teilgenommen.";

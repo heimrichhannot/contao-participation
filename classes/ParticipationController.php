@@ -13,6 +13,13 @@ namespace HeimrichHannot\Participation;
 
 class ParticipationController extends \Controller
 {
+	protected static $intTimeout = 2000; // 2 seconds spam timeout between submissions
+
+	public static function getTimeout()
+	{
+		return static::$intTimeout;
+	}
+
 	public static function getParticipationLabel(\Model $objModel, $strLabel, $raw=false)
 	{
 		if(($objConfig = static::findParticipationConfigClass($objModel)) !== null)

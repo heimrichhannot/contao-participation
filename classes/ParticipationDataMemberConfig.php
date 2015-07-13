@@ -14,21 +14,19 @@ namespace HeimrichHannot\Participation;
 
 class ParticipationDataMemberConfig extends ParticipationDataConfig
 {
-	protected static $intTimeout = 5000; // 5 seconds spam timeout between submissions
-
 	public function runAfterAuthentication(\User $objUser)
 	{
 		if(!ParticipationController::issetActiveParticipation())
 		{
 			return false;
 		}
-		
+
 		// prevent infinite requests (result: wrong message from session will be shown)
 		if(ParticipationController::issetRecentlyAddedParticipation() && ParticipationController::getActiveParticipationID() == ParticipationController::getRecentlyAddedParticipationID())
 		{
 			$objParticipationData = ParticipationController::getRecentlyAddedParticipationData();
 
-			if (($objParticipationData->tstamp + static::$intTimeout) >= time())
+			if (($objParticipationData->tstamp + ParticipationController::getTimeout()) >= time())
 			{
 				ParticipationController::removeRecentlyAddedParticipation();
 				return false;
@@ -89,6 +87,9 @@ class ParticipationDataMemberConfig extends ParticipationDataConfig
 				ParticipationController::getParticipationLabel($this->getParticipation(), '', true)
 			)
 		);
+		
+		// remove participation from session
+		ParticipationController::removeActiveParticipation();
 	}
 
 

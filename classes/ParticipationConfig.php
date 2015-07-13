@@ -11,7 +11,7 @@
 namespace HeimrichHannot\Participation;
 
 
-abstract class ParticipationConfig
+abstract class ParticipationConfig extends \Controller
 {
 	/**
 	 * Model
@@ -71,6 +71,8 @@ abstract class ParticipationConfig
 	 */
 	public function __construct($objConfig)
 	{
+		parent::__construct();
+
 		if ($objConfig instanceof \Model)
 		{
 			$this->objModel = $objConfig;
@@ -83,6 +85,7 @@ abstract class ParticipationConfig
 		$this->arrData = $objConfig->row();
 
 		\Controller::loadDataContainer($objConfig->type);
+		\Controller::loadLanguageFile('default');
 
 		$this->strTable = $objConfig->type;
 		$this->ptable = $GLOBALS['TL_DCA'][$this->strTable]['config']['ptable'];
