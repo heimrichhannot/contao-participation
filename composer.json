@@ -1,0 +1,32 @@
+{
+    "name": "heimrichhannot/contao-participation",
+    "description":"A contao backend entity, that allows you to participate to another entity (like news, events) from any url.",
+    "keywords":["contao", "backend", "entity", "participation"],
+    "type": "contao-module",
+    "homepage":"https://github.com/heimrichhannot/contao-participation",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"Heimrich & Hannot",
+            "email":"digitales@heimrich-hannot.de",
+            "homepage":"http://www.heimrich-hannot.de",
+            "role":"Developer"
+        }
+    ],
+    "support":{
+        "issues":"https://github.com/heimrichhannot/contao-participation/issues"
+    },
+    "require": {
+        "contao/core": ">=3.4,<4-dev"
+    },
+    "autoload": {
+        "classmap": [""]
+    },
+    "extra": {
+        "contao": {
+            "sources": {
+                "": "system/modules/participation"
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<?php if($this->msg !== null && $this->msg !== '') :?>
+	<?php echo $this->msg; ?>
+<?php endif?>
+
+<?php $this->endblock(); ?>
