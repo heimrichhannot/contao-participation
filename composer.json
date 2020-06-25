@@ -17,7 +17,8 @@
         "issues":"https://github.com/heimrichhannot/contao-participation/issues"
     },
     "require": {
-        "contao/core": ">=3.4,<4-dev"
+        "contao/core-bundle": "^3.4|^4.1",
+        "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
     },
     "autoload": {
         "classmap": [""]
