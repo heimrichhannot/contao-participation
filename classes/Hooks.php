@@ -59,7 +59,7 @@ class Hooks
 				if ($objArchive->addInfoMessage && $objArchive->infoMessageWith !== '')
 				{
 					ParticipationMessage::addInfo(
-						\String::parseSimpleTokens(
+                        StringUtil::parseSimpleTokens(
 							$objArchive->infoMessageWith,
 							array('participation' => ParticipationController::getParticipationLabel($objParticipation, '', true))
 						),
